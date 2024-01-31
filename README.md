@@ -1,2 +1,2 @@
 # NP-WSP-Project
-Repo for my work.
+Repo for the final project.
