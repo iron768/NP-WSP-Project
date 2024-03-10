@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { type User, getUsers } from "../model/users";
 
 const users = ref([] as User[]);
@@ -9,9 +10,7 @@ users.value = getUsers();
 <template>
   <div>
     <table class="table">
-      <thead>
-        Users
-      </thead>
+      <caption>Users</caption>
       <tr>
         <th>ID</th>
         <th>Name</th>
@@ -22,7 +21,7 @@ users.value = getUsers();
         <td>{{ user.id }}</td>
         <td>{{ user.name }}</td>
         <td>{{ user.admin }}</td>
-        <img :src="user.profilePicture" />
+        <img :src="user.profilePicture" width="100px" />
       </tr>
     </table>
   </div>

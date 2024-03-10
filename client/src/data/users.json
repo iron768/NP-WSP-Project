@@ -4,13 +4,31 @@
       "name": "CJ Jenks",
       "email": "jenksc1@newpaltz.edu",
       "admin": true,
-      "profilePicture": "https://robohash.org/Terry.png?set=set4"
+      "profilePicture": "https://robohash.org/Terry.png?set=set4",
+      "friends": []
     },
     {
       "id": 2,
       "name": "Jane Smith",
       "email": "jane@example.com",
       "admin": false,
-      "profilePicture": "https://robohash.org/Miles.png?set=set4"
+      "profilePicture": "https://robohash.org/Miles.png?set=set4",
+      "friends": []
+    },
+    {
+      "id": 3,
+      "name": "Johnny Appleseed",
+      "email": "ja@example.com",
+      "admin": false,
+      "profilePicture": "https://robohash.org/Terrill.png",
+      "friends": []
+    },
+    {
+      "id": 4,
+      "name": "Jaden Smith",
+      "email": "jaden@smith.com",
+      "admin": false,
+      "profilePicture": "https://upload.wikimedia.org/wikipedia/commons/8/88/2019_-_Opening_Night_SM1_0368_%2849015104751%29.jpg",
+      "friends": []
     }
 ]

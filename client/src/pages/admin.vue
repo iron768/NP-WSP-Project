@@ -14,6 +14,9 @@ console.log(session.user)
     <h1>Welcome admin!</h1>
     <UserTable />
   </div>
+  <div v-if="!session.user?.admin" class="are-u-admin">
+    <h1>You need to login.</h1>
+  </div>
 </template>
 
 <style>
