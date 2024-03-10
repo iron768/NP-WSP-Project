@@ -9,10 +9,6 @@ let isActive = ref(false);
 function toggleMenu() {
   isActive.value = !isActive.value;
 }
-
-function toggleMenuLogin() {
-  isActiveLogin.value = !isActiveLogin.value;
-}
 </script>
 
 <template>

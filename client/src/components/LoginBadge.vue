@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { type User, getProducts, getUsers } from "../model/users";
-import { getSession, login } from '../model/session'
+import { type User, getUsers } from "../model/users";
+import { getSession } from '../model/session'
 import { ref } from "vue";
 
 const session = getSession()
@@ -27,7 +27,7 @@ function toggleMenuLogin() {
             <a v-if="session.user == null" class="button is-black">
               <strong>Sign up</strong>
             </a>
-            <a v-if="session.user != null" class="button is-black" @click.prevent="session.user = user">
+            <a v-if="session.user != null" class="button is-black" @click.prevent="session.user = null">
               <strong>Logout</strong>
             </a>
             <div :class="{ 'dropdown is-active is-right': isActiveLogin }" @click="toggleMenuLogin" >
