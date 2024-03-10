@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>This is an friends page</h1>
     <i class="fas fa-coffee"></i> <!-- Example icon: coffee -->
   </div>
 </template>

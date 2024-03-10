@@ -1,7 +1,7 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
-    <i class="fas fa-coffee"></i> <!-- Example icon: coffee -->
+    <h1>This page is in development! </h1>
+    <i class="fal fa-sign-hanging"></i>
   </div>
 </template>
 

@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "name": "CJ Jenks",
+      "email": "jenksc1@newpaltz.edu",
+      "admin": true
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "admin": false
+    }
+]
