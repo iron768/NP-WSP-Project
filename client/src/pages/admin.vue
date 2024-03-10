@@ -1,16 +1,21 @@
+<script setup lang="ts">
+import { getSession, login } from '@/model/session'
+
+import UserTable from '@/components/UserTable.vue';
+
+const session = getSession()
+
+console.log(session.user)
+
+</script>
+
 <template>
-  <div class="about">
-    <h1>This is an admin page</h1>
-    <i class="fas fa-coffee"></i> <!-- Example icon: coffee -->
+  <div v-if="session.user?.admin" class="are-u-admin">
+    <h1>Welcome admin!</h1>
+    <UserTable />
   </div>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
+
 </style>

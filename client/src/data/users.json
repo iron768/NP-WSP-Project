@@ -3,12 +3,14 @@
       "id": 1,
       "name": "CJ Jenks",
       "email": "jenksc1@newpaltz.edu",
-      "admin": true
+      "admin": true,
+      "profilePicture": "https://robohash.org/Terry.png?set=set4"
     },
     {
       "id": 2,
       "name": "Jane Smith",
       "email": "jane@example.com",
-      "admin": false
+      "admin": false,
+      "profilePicture": "https://robohash.org/Miles.png?set=set4"
     }
 ]

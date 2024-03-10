@@ -3,6 +3,8 @@ import { RouterLink } from "vue-router";
 import { ref } from "vue";
 import { type User, getProducts, getUsers } from "../model/users";
 
+import { getSession, login } from '@/model/session'
+
 let isActive = ref(false);
 let isActiveLogin = ref(false);
 
@@ -14,6 +16,8 @@ function toggleMenuLogin() {
   isActiveLogin.value = !isActiveLogin.value;
 }
 
+const session = getSession()
+
 const users = ref([] as User[]);
 
 users.value = getUsers();
@@ -22,27 +26,15 @@ users.value = getUsers();
 <template>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="/">Fitness Tracker</a>
-      <a
-        role="button"
-        @click="toggleMenu"
-        :class="{ 'is-active': isActive }"
-        class="navbar-burger"
-        aria-label="menu"
-        aria-expanded="false"
-        data-target="navbarBasicExample"
-      >
+      <RouterLink to="/" class="navbar-item">Fitness Tracker</RouterLink>
+      <a role="button" @click="toggleMenu" :class="{ 'is-active': isActive }" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
 
-    <div
-      id="navbarBasicExample"
-      class="navbar-menu"
-      :class="{ 'is-active': isActive }"
-    >
+    <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-start">
         <RouterLink to="admin" class="navbar-item"> Admin </RouterLink>
 
@@ -52,20 +44,20 @@ users.value = getUsers();
       </div>
       <div class="navbar-end">
         <div class="navbar-item">
+          <div v-if="session.user != null" class="navbar-item">
+            {{ session.user.name }}
+            <img :src="session.user.profilePicture"/>
+          </div>
           <div class="buttons">
-            <a class="button is-black">
+            <a v-if="session.user == null" class="button is-black">
               <strong>Sign up</strong>
             </a>
-            <div
-              @click="toggleMenuLogin"
-              :class="{ 'dropdown is-active': isActiveLogin }"
-            >
-              <div class="dropdown-trigger">
-                <button
-                  class="button"
-                  aria-haspopup="true"
-                  aria-controls="dropdown-menu"
-                >
+            <a v-if="session.user != null" class="button is-black" @click.prevent="session.user = user">
+              <strong>Logout</strong>
+            </a>
+            <div @click="toggleMenuLogin" :class="{ 'dropdown is-active': isActiveLogin }">
+              <div v-if="session.user == null" class="dropdown-trigger">
+                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
                   <span> Login </span>
                   <span class="icon is-small">
                     <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -75,7 +67,8 @@ users.value = getUsers();
               <div class="dropdown-menu" id="dropdown-menu" role="menu">
                 <div class="dropdown-content">
                   <div v-for="user in users" :key="user.id">
-                    <a href="#" class="dropdown-item"> {{ user.name }}</a>
+                    <a href="#" @click.prevent="session.user = user" class="dropdown-item">
+                      {{ user.name }}</a>
                   </div>
                 </div>
               </div>
@@ -89,14 +82,15 @@ users.value = getUsers();
 
 <style scoped>
 .router-link-active {
-  border-bottom: 2px solid #FFFDD0;
+  border-bottom: 2px solid #fffdd0;
 }
 
 .navbar {
   background-color: #333333;
+  height: 3em;
 }
 
 .navbar-item {
-  color: #FAF9F6;
+  color: #faf9f6;
 }
 </style>
