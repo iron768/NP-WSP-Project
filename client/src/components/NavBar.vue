@@ -9,6 +9,8 @@ let isActive = ref(false);
 function toggleMenu() {
   isActive.value = !isActive.value;
 }
+
+const session = getSession()
 </script>
 
 <template>
@@ -24,7 +26,7 @@ function toggleMenu() {
 
     <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-start">
-        <RouterLink to="admin" class="navbar-item"> Admin </RouterLink>
+        <RouterLink to="admin" class="navbar-item" v-if="session.user?.admin"> Admin </RouterLink>
 
         <RouterLink to="activity" class="navbar-item"> My Activity </RouterLink>
 

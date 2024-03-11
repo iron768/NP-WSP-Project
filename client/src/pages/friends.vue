@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getSession, login } from '@/model/session'
+import { getSession,   } from '@/model/session'
 
 import FriendTable from '@/components/FriendTable.vue';
 
