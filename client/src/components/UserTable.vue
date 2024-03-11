@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { type User, getUsers } from "../model/users";
+import { getSession, login } from '@/model/session'
 
 const users = ref([] as User[]);
 
@@ -12,6 +13,8 @@ const deleteUser = (userId: number) => {
     users.value.splice(indexToRemove, 1); // Removes the user at the found index
   }
 }
+
+const session = getSession()
 </script>
 
 <template>
@@ -30,7 +33,7 @@ const deleteUser = (userId: number) => {
         <td>{{ user.name }}</td>
         <td>{{ user.admin }}</td>
         <img :src="user.profilePicture" width="100px" />
-        <button class="button is-danger" @click.prevent="deleteUser(user.id)">Delete</button>
+        <button v-if="user?.id != session.user?.id" class="button is-danger" @click.prevent="deleteUser(user.id)">Delete</button>
       </tr>
     </table>
   </div>
