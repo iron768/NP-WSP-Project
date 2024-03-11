@@ -6,7 +6,8 @@ export interface User {
     email: string;
     admin: boolean;
     profilePicture: string;
-    token?: string
+    token?: string;
+    friends: number[]
 }
 
 export function getUsers(): User[] {

@@ -5,8 +5,6 @@ import UserTable from '@/components/UserTable.vue';
 
 const session = getSession()
 
-console.log(session.user)
-
 </script>
 
 <template>

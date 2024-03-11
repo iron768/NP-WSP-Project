@@ -15,6 +15,7 @@ export function login(){
       name: "Test",
       email: "test@user.com",
       admin: false,
-      profilePicture: "https://robohash.org/Terry.png?set=set4"
+      profilePicture: "https://robohash.org/Terry.png?set=set4",
+      friends: []
     }
 }
