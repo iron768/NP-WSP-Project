@@ -19,24 +19,40 @@ const session = getSession()
 
 <template>
   <div>
-    <table class="table">
-      <caption>Users</caption>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Admin</th>
-        <th>Profile Picture</th>
-        <th>Edit</th>
-      </tr>
-      <tr v-for="user in users" :key="user.id">
-        <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.admin }}</td>
-        <img :src="user.profilePicture" width="100px" />
-        <button v-if="user?.id != session.user?.id" class="button is-danger" @click.prevent="deleteUser(user.id)">Delete</button>
-      </tr>
-    </table>
+    <h1>Admin Panel</h1>
+  </div>
+  <div>
+    <div v-for="user in users" :key="user.id" class="class">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img :src="user.profilePicture" alt="Profile Picture">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">{{ user.name }}</p>
+            <p class="subtitle is-6">ID: {{ user.id }}</p>
+            <p class="subtitle is-6 admin-subtitle" v-if="user?.admin">Admin</p>
+          </div>
+          <div class="button-container">
+            <button v-if="user?.id != session.user?.id" @click="deleteUser(user.id)" class="button is-danger is-focused">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.admin-subtitle {
+  color: red;
+  font-size: small;
+}
+</style>

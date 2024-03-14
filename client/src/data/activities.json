@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "distance": 7.2,
+        "location": "New Paltz, NY",
+        "calories": 725
+    },
+    {
+        "id": 1,
+        "distance": 2.5,
+        "location": "Stony Point, NY",
+        "calories": 106
+    },
+    {
+        "id": 2,
+        "distance": 10.4,
+        "location": "Miami, FL",
+        "calories": 1315
+    },
+    {
+        "id": 2,
+        "distance": 3.2,
+        "location": "Miami, FL",
+        "calories": 343
+    },
+    {
+        "id": 3,
+        "distance": 1.0,
+        "location": "Garland, TX",
+        "calories": 100
+    },
+    {
+        "id": 3,
+        "distance": 4.4,
+        "location": "Garland, TX",
+        "calories": 725
+    }
+]

@@ -43,7 +43,9 @@ function toggleMenuLogin() {
                 <div class="dropdown-content">
                   <div v-for="user in users" :key="user.id">
                     <a href="#" @click.prevent="session.user = user" class="dropdown-item">
-                      {{ user.name }}</a>
+                    <img :src="user.profilePicture"/>
+                      {{ user.name }}
+                    </a>
                   </div>
                 </div>
               </div>

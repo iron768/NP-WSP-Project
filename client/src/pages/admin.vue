@@ -9,7 +9,6 @@ const session = getSession()
 
 <template>
   <div v-if="session.user?.admin" class="are-u-admin">
-    <h1>Welcome admin!</h1>
     <UserTable />
   </div>
   <div v-if="!session.user?.admin" class="are-u-admin">
