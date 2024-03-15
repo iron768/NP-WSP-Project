@@ -39,15 +39,15 @@ const session = getSession()
           </div>
         </div>
         <div class="field">
-          <label class="label">Distance Ran</label>
+          <label class="label">Distance</label>
           <div class="control">
-            <input class="input" type="number" min="1" max="9999.99" placeholder="Distance Ran" v-model="newActivity.distance" />
+            <input class="input" type="number" min="1" max="9999.99" placeholder="Distance" v-model="newActivity.distance" />
           </div>
         </div>
         <div class="field">
           <label class="label">Description of activity</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Description" v-model="newActivity.description" />
+            <input class="input" type="text" placeholder="Description of activity" v-model="newActivity.description" />
           </div>
         </div>
         <div class="field">
@@ -73,8 +73,6 @@ const session = getSession()
               Edit Activity
             </button>
             </div>
-
-
           </div>
         </div>
       </div>
