@@ -36,8 +36,8 @@ for (let i = 0; i < users.length; i++) {
         <tbody>
           <tr v-for="(user, index) in friends" :key="user.id" :class="{ 'is-selected': index % 2 === 0 }">
             <td><img :src="user.profilePicture" alt="Profile Picture" class="image is-48x48"></td>
-            <td>{{ user.name }}</td>
-            <td>{{ user.id }}</td>
+            <td class="custom-text-color">{{ user.name }}</td>
+            <td class="custom-text-color">{{ user.id }}</td>
           </tr>
         </tbody>
       </table>
@@ -57,6 +57,10 @@ h1 {
 }
 
 .is-selected {
-  background-color: #f5f5f5; /* Alternate row color */
+  background-color: #9C58B4; /* Alternate row color */
+}
+
+.custom-text-color {
+  color: #08120C; /* Set the text color */
 }
 </style>

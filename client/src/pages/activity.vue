@@ -50,30 +50,42 @@ function getTotalDistance(activities: Activity[]): number {
           <div class="statistics-section">
             <h3>All time statistics:</h3>
             <div class="statistics-item">
-              <strong>Calories Burned:</strong> {{ getTotalBurnedCalories(session.user?.activities) }}
+              <p class="custom-text-color">
+                <strong>Calories Burned:</strong> {{ getTotalBurnedCalories(session.user?.activities) }}
+              </p>
             </div>
             <div class="statistics-item">
-              <strong>Distance:</strong> {{ getTotalDistance(session.user?.activities) }}
+              <p class="custom-text-color">
+                <strong>Distance:</strong> {{ getTotalDistance(session.user?.activities) }}
+              </p>
             </div>
           </div>
 
           <div class="statistics-section">
             <h3>Today's statistics:</h3>
             <div class="statistics-item">
-              <strong>Calories Burned:</strong> {{ getTotalBurnedCalories(getActivitiesToday(session?.user)) }}
+              <p class="custom-text-color">
+                <strong>Calories Burned:</strong> {{ getTotalBurnedCalories(getActivitiesToday(session?.user)) }}
+              </p>
             </div>
             <div class="statistics-item">
-              <strong>Distance:</strong> {{ getTotalDistance(getActivitiesToday(session?.user)) }}
+              <p class="custom-text-color">
+                <strong>Distance:</strong> {{ getTotalDistance(getActivitiesToday(session?.user)) }}
+              </p>
             </div>
           </div>
 
           <div class="statistics-section">
             <h3>This week's statistics:</h3>
             <div class="statistics-item">
-              <strong>Calories Burned:</strong> {{ getTotalBurnedCalories(getActivitiesThisWeek(session?.user)) }}
+              <p class="custom-text-color">
+                <strong>Calories Burned:</strong> {{ getTotalBurnedCalories(getActivitiesThisWeek(session?.user)) }}
+              </p>
             </div>
             <div class="statistics-item">
-              <strong>Distance:</strong> {{ getTotalDistance(getActivitiesThisWeek(session?.user)) }}
+              <p class="custom-text-color">
+                <strong>Distance:</strong> {{ getTotalDistance(getActivitiesThisWeek(session?.user)) }}
+              </p>
             </div>
           </div>
         </div>
@@ -82,11 +94,11 @@ function getTotalDistance(activities: Activity[]): number {
       <div v-for="activity in session.user?.activities" :key="activity.activityID" class="card" style="margin-top: 20px;">
         <div class="card-content custom-border">
           <div class="content">
-            <p><strong>Date:</strong> {{ activity.date }}</p>
-            <p><strong>Calories Burned:</strong> {{ activity.caloriesBurned }}</p>
-            <p><strong>Distance:</strong> {{ activity.distance }}</p>
-            <p><strong>Description:</strong> {{ activity.description }} </p>
-            <img :src="activity.image" alt="Activity image">
+            <p class="custom-text-color"><strong>Date:</strong> {{ activity.date }}</p>
+            <p class="custom-text-color"><strong>Calories Burned:</strong> {{ activity.caloriesBurned }}</p>
+            <p class="custom-text-color"><strong>Distance:</strong> {{ activity.distance }}</p>
+            <p class="custom-text-color"><strong>Description:</strong> {{ activity.description }} </p>
+            <img class="custom-text-color" :src="activity.image" alt="Activity image">
           </div>
             <button @click="adding = false; newActivity = getActivity(session.user, activity.activityID); toggleModal()" class="button is-warning is-focused" style="margin-right: 20px;">Edit</button>
             <button @click="handleActivityDelete(activity)" class="button is-danger is-focused">Delete</button>
@@ -107,10 +119,6 @@ function getTotalDistance(activities: Activity[]): number {
 </template>
 
 <style scoped>
-* {
-  background-color: transparent;
-}
-
 h1 {
   text-align: center;
   font-weight: bold;
@@ -127,5 +135,9 @@ h1 {
 
 .statistics-item {
   margin-bottom: 10px; /* Add some space between statistics */
+}
+
+.custom-text-color {
+  color: #08120C; /* Set the text color */
 }
 </style>

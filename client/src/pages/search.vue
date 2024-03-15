@@ -26,15 +26,15 @@ function handleSearch() {
         </header>
         <div class="card-content">
           <div class="content">
-            <p>
+            <p class="custom-text-color">
               <strong>Calories Burned:</strong>
               {{ searchedUser?.activities.reduce((total, activity) => total + activity.caloriesBurned, 0) }}
             </p>
-            <p>
+            <p class="custom-text-color">
                 <strong>Distance:</strong>
                 {{ searchedUser?.activities.reduce((total, activity) => total + activity.distance, 0) }}
             </p>
-            <p v-if="searchedUser?.admin">
+            <p class="custom-text-color" v-if="searchedUser?.admin">
                 <strong>Role:</strong> Admin
             </p>
           </div>
@@ -49,5 +49,9 @@ h1 {
   text-align: center;
   font-weight: bold;
   font-size: xx-large;
+}
+
+.custom-text-color {
+  color: #08120C; /* Set the text color */
 }
 </style>

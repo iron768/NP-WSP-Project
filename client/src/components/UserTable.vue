@@ -46,10 +46,10 @@ function toggleModal() {
         </thead>
         <tbody>
           <tr v-for="(user, index) in users" :key="user.id" :class="{ 'is-selected': index % 2 === 0 }">
-            <td><img :src="user.profilePicture" alt="Profile Picture" class="image is-48x48"></td>
-            <td>{{ user.name }}</td>
-            <td>{{ user.id }}</td>
-            <td v-if="user.admin" class="admin-subtitle">Admin</td>
+            <td class="custom-text-color"><img :src="user.profilePicture" alt="Profile Picture" class="image is-48x48"></td>
+            <td class="custom-text-color">{{ user.name }}</td>
+            <td class="custom-text-color">{{ user.id }}</td>
+            <td v-if="user.admin" class="admin-subtitle custom-text-color">Admin</td>
             <td v-else></td>
             <td>
               <button v-if="user.id !== session.user?.id" @click="deleteUser(user.id)" class="button is-danger is-small">Delete</button>
@@ -82,5 +82,9 @@ h1 {
 
 .is-selected {
   background-color: #f5f5f5; /* Alternate row color */
+}
+
+.custom-text-color {
+  color: #08120C; /* Set the text color */
 }
 </style>

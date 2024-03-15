@@ -9,7 +9,5 @@
 </template>
 
 <style>
-.trans {
-  background: none;
-}
+
 </style>

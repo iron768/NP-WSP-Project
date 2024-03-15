@@ -17,5 +17,4 @@ const session = getSession()
 </template>
 
 <style>
-
 </style>

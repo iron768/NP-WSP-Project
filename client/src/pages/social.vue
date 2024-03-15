@@ -47,30 +47,30 @@ function getTotalDistance() {
     <div class="column is-half">
       <div class="card custom-border" style="margin-top: 20px;">
         <header class="card-header">
-          <p class="card-header-title">
+          <p class="card-header-title custom-text-color">
             <img :src="session.user?.profilePicture" alt="Profile picture" class="image is-16x16">
            {{ session.user?.name }}'s friend's statistics
           </p>
         </header>
         <div class="card-content">
           <div class="content">
-            <p><strong>Total Calories Burned:</strong> {{ getTotalCaloriesBurned() }}</p>
-            <p><strong>Total Distance:</strong> {{ getTotalDistance() }}</p>
+            <p class="custom-text-color"><strong>Total Calories Burned:</strong> {{ getTotalCaloriesBurned() }}</p>
+            <p class="custom-text-color"><strong>Total Distance:</strong> {{ getTotalDistance() }}</p>
           </div>
         </div>
       </div>
       <div v-for="item in friendsActivities" :key="item.activity.activityID" class="card" style="margin-top: 20px;">
         <div class="card-content custom-border">
             <div class="content">
-                <p>
+                <p class="custom-text-color">
                     <img :src="item.friend?.profilePicture" alt="Profile picture" class="image is-16x16">
                     <strong>Friend:</strong> {{ item.friend.name }}
                 </p> 
-                <p><strong>Date:</strong> {{ item.activity.date }}</p>
-                <p><strong>Calories Burned:</strong> {{ item.activity.caloriesBurned }}</p>
-                <p><strong>Distance:</strong> {{ item.activity.distance }}</p>
-                <p><strong>Description:</strong> {{ item.activity.description }}</p>
-                <img :src="item.activity.image" alt="Activity image">
+                <p class="custom-text-color"><strong>Date:</strong> {{ item.activity.date }}</p>
+                <p class="custom-text-color"><strong>Calories Burned:</strong> {{ item.activity.caloriesBurned }}</p>
+                <p class="custom-text-color"><strong>Distance:</strong> {{ item.activity.distance }}</p>
+                <p class="custom-text-color"><strong>Description:</strong> {{ item.activity.description }}</p>
+                <img class="custom-text-color" :src="item.activity.image" alt="Activity image">
             </div>
         </div>
       </div>
@@ -97,5 +97,9 @@ h1 {
 
 .custom-border {
    /* border: 2px solid #ff0000; */
+}
+
+.custom-text-color {
+  color: #08120C; /* Set the text color */
 }
 </style>

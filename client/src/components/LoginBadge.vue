@@ -32,7 +32,7 @@ function toggleMenuLogin() {
             </a>
             <div :class="{ 'dropdown is-active is-right': isActiveLogin }" @click="toggleMenuLogin" >
               <div v-if="session.user == null" class="dropdown-trigger">
-                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                <button class="button is-dark" aria-haspopup="true" aria-controls="dropdown-menu">
                   <span> Login </span>
                   <span class="icon is-small">
                     <i class="fas fa-angle-down" aria-hidden="true"></i>
