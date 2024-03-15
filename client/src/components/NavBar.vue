@@ -9,10 +9,12 @@ let isActive = ref(false);
 function toggleMenu() {
   isActive.value = !isActive.value;
 }
+
+const session = getSession()
 </script>
 
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar" role="navigation">
     <div class="navbar-brand">
       <RouterLink to="/" class="navbar-item">Fitness Tracker</RouterLink>
       <a role="button" @click="toggleMenu" :class="{ 'is-active': isActive }" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -24,11 +26,15 @@ function toggleMenu() {
 
     <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-start">
-        <RouterLink to="admin" class="navbar-item"> Admin </RouterLink>
+        <RouterLink to="search" class="navbar-item"> User Search </RouterLink>
 
-        <RouterLink to="activity" class="navbar-item"> My Activity </RouterLink>
+        <RouterLink to="admin" class="navbar-item" v-if="session.user?.admin"> Admin </RouterLink>
 
-        <RouterLink to="friends" class="navbar-item"> Friends </RouterLink>
+        <RouterLink to="activity" class="navbar-item" v-if="session.user != null"> My Activity </RouterLink>
+
+        <RouterLink to="friends" class="navbar-item" v-if="session.user != null"> Friends </RouterLink>
+
+        <RouterLink to="social" class="navbar-item" v-if="session.user != null"> Friend's Activity</RouterLink>
       </div>
       <LoginBadge />
     </div>
@@ -41,8 +47,8 @@ function toggleMenu() {
 }
 
 .navbar {
-  background-color: #333333;
-  height: 3em;
+  background-color: #08120C;
+  height: 4em;
 }
 
 .navbar-item {
