@@ -7,6 +7,7 @@ import { getSession } from "@/model/session";
 const newActivity = ref({} as Activity);
 
 const modal = ref(false);
+const adding = ref(false);
 
 function toggleModal() {
   modal.value = !modal.value;
@@ -40,6 +41,7 @@ function getTotalDistance() {
 </script>
 
 <template>
+  <h1>Friend's Activity</h1>
   <div v-if="session.user != null">
   <div class="columns is-centered">
     <div class="column is-half">
@@ -76,7 +78,7 @@ function getTotalDistance() {
   </div>
 
   <div>
-    <ActivityModal :new-activity="newActivity" :modal="modal" :toggleModal="toggleModal" />
+    <ActivityModal :newActivity="newActivity" :modal="modal" :adding="adding" :toggleModal="toggleModal" />
   </div>
   </div>
   <div v-else> 
@@ -87,7 +89,13 @@ function getTotalDistance() {
 </template>
 
 <style scoped>
+h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
 .custom-border {
-  border: 2px solid #ff0000; /* Red border */
+   /* border: 2px solid #ff0000; */
 }
 </style>

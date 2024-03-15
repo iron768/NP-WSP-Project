@@ -30,6 +30,7 @@ function getTotalDistance(activities: Activity[]): number {
 </script>
 
 <template>
+  <h1>My Activity</h1>
   <div v-if="session.user != null">
     <button @click="newActivity = {} as Activity; adding = true; toggleModal()" class="button is-primary mt-4" style="display: block; margin: auto;" >
       Add Activity
@@ -95,7 +96,7 @@ function getTotalDistance(activities: Activity[]): number {
   </div>
 
   <div>
-    <ActivityModal :new-activity="newActivity" :modal="modal" :adding="adding" :toggleModal="toggleModal" />
+    <ActivityModal :newActivity="newActivity" :modal="modal" :adding="adding" :toggleModal="toggleModal" />
   </div>
   </div>
   <div v-else> 
@@ -106,8 +107,14 @@ function getTotalDistance(activities: Activity[]): number {
 </template>
 
 <style scoped>
+h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
 .custom-border {
-  border: 2px solid #ff0000; /* Red border */
+   /* border: 2px solid #ff0000; */
 }
 
 .statistics-section {

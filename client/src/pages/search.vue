@@ -16,6 +16,7 @@ function handleSearch() {
 
 <template>
   <div>
+    <h1>User Search</h1>
     <input class="input" type="text" placeholder="Search for user via name." v-model="searchQuery" @input="handleSearch"/>
 
     <div v-if="searchedUser">
@@ -43,4 +44,10 @@ function handleSearch() {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: xx-large;
+}
+</style>
