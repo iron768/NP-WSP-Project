@@ -28,9 +28,9 @@ const session = getSession()
       <div class="navbar-start">
         <RouterLink to="admin" class="navbar-item" v-if="session.user?.admin"> Admin </RouterLink>
 
-        <RouterLink to="activity" class="navbar-item"> My Activity </RouterLink>
+        <RouterLink to="activity" class="navbar-item" v-if="session.user != null"> My Activity </RouterLink>
 
-        <RouterLink to="friends" class="navbar-item"> Friends </RouterLink>
+        <RouterLink to="friends" class="navbar-item" v-if="session.user != null"> Friends </RouterLink>
       </div>
       <LoginBadge />
     </div>

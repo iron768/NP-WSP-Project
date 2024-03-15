@@ -23,20 +23,32 @@ for (let i = 0; i < users.length; i++) {
 
 <template>
   <div>
-    <table class="table">
-      <caption>Friends</caption>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Profile Picture</th>
-      </tr>
-      <tr v-for="user in friends" :key="user.id">
-        <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
-        <img :src="user.profilePicture" width="100px" />
-      </tr>
-    </table>
+    <h1>Friends List</h1>
+  </div>
+
+  <div>
+    <div v-for="user in friends" :key="user.id" class="class">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img :src="user.profilePicture" alt="Profile Picture">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">{{ user.name }}</p>
+            <p class="subtitle is-6">ID: {{ user.id }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: xx-large;
+}
+</style>
