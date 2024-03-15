@@ -1,9 +1,6 @@
 <script setup lang="ts">
 
-import { ref } from "vue";
 import { type User, addUser, deleteUser } from "@/model/users";
-import { addActivity } from "@/model/users";
-import { getSession } from "@/model/session";
 
 const props = defineProps<{
     newUser: User,
@@ -11,6 +8,10 @@ const props = defineProps<{
     adding: boolean,
     toggleModal: () => void
 }>()
+
+function removeUser(id: number) {
+    deleteUser(id);
+}
 
 </script>
 
@@ -57,7 +58,7 @@ const props = defineProps<{
               </button>
             </div>
             <div v-else>
-              <button @click="deleteUser(newUser.id); addUser(newUser) toggleModal();" class="button is-primary">
+              <button @click="removeUser(newUser.id); addUser(newUser); toggleModal();" class="button is-primary">
               Edit User
             </button>
             </div>

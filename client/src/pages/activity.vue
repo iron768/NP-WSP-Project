@@ -11,8 +11,6 @@ const adding = ref(false);
 
 function toggleModal() {
   modal.value = !modal.value;
-
-  console.log(modal.value);
 }
 
 const session = ref(getSession());
@@ -33,7 +31,7 @@ function getTotalDistance(activities: Activity[]): number {
 
 <template>
   <div v-if="session.user != null">
-    <button @click="adding = true; toggleModal()" class="button is-primary mt-4" style="display: block; margin: auto;" >
+    <button @click="newActivity = {} as Activity; adding = true; toggleModal()" class="button is-primary mt-4" style="display: block; margin: auto;" >
       Add Activity
     </button>
 

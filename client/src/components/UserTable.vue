@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import UserModal from '@/components/UserModal.vue';
 import { type User, getUsers } from "../model/users";
 import { getSession, login } from '@/model/session'
 
@@ -15,11 +16,23 @@ const deleteUser = (userId: number) => {
 }
 
 const session = getSession()
+
+const newUser = ref({} as User);
+
+const modal = ref(false);
+const adding = ref(false);
+
+function toggleModal() {
+  modal.value = !modal.value;
+}
 </script>
 
 <template>
   <div>
     <h1>Admin Panel</h1>
+    <button @click="newUser = {} as User; adding = true; toggleModal()" class="button is-primary mt-4" style="display: block; margin: auto;" >
+      Add User
+    </button>
     <div class="table-container">
       <table class="table is-striped is-fullwidth">
         <thead>
@@ -40,10 +53,14 @@ const session = getSession()
             <td v-else></td>
             <td>
               <button v-if="user.id !== session.user?.id" @click="deleteUser(user.id)" class="button is-danger is-small">Delete</button>
+              <button class="button is-warning is-small" @click="adding = false; newUser = user; toggleModal()">Edit</button>
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+    <div>
+      <UserModal :newUser="newUser" :modal="modal" :adding="adding" :toggleModal="toggleModal" />
     </div>
   </div>
 </template>
