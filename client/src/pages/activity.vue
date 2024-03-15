@@ -107,6 +107,10 @@ function getTotalDistance(activities: Activity[]): number {
 </template>
 
 <style scoped>
+* {
+  background-color: transparent;
+}
+
 h1 {
   text-align: center;
   font-weight: bold;

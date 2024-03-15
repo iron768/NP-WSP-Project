@@ -14,7 +14,7 @@ const session = getSession()
 </script>
 
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar" role="navigation">
     <div class="navbar-brand">
       <RouterLink to="/" class="navbar-item">Fitness Tracker</RouterLink>
       <a role="button" @click="toggleMenu" :class="{ 'is-active': isActive }" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
