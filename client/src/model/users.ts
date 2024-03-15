@@ -25,6 +25,18 @@ export function editUser(user: User) {
 
     data[index] = user;
 }
+
+export function addUser(user: User) {
+    data.push(user);
+}
+
+export function deleteUser(userId: number) {
+    const index = data.findIndex(u => u.id === userId);
+
+    if (index !== -1) {
+        data.splice(index, 1);
+    }
+}
   
 export function addActivity(user : User | null, activity : Activity) {
     const index = data.findIndex(u => u.id === user?.id);

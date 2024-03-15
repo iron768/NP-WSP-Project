@@ -7,6 +7,7 @@ import { getSession } from "@/model/session";
 const newActivity = ref({} as Activity);
 
 const modal = ref(false);
+const adding = ref(false);
 
 function toggleModal() {
   modal.value = !modal.value;
@@ -32,7 +33,7 @@ function getTotalDistance(activities: Activity[]): number {
 
 <template>
   <div v-if="session.user != null">
-    <button @click="toggleModal()" class="button is-primary mt-4" style="display: block; margin: auto;" >
+    <button @click="adding = true; toggleModal()" class="button is-primary mt-4" style="display: block; margin: auto;" >
       Add Activity
     </button>
 
@@ -88,7 +89,7 @@ function getTotalDistance(activities: Activity[]): number {
             <p><strong>Description:</strong> {{ activity.description }} </p>
             <img :src="activity.image" alt="Activity image">
           </div>
-            <button @click="newActivity = getActivity(session.user, activity.activityID); toggleModal()" class="button is-warning is-focused" style="margin-right: 20px;">Edit</button>
+            <button @click="adding = false; newActivity = getActivity(session.user, activity.activityID); toggleModal()" class="button is-warning is-focused" style="margin-right: 20px;">Edit</button>
             <button @click="handleActivityDelete(activity)" class="button is-danger is-focused">Delete</button>
         </div>
       </div>
@@ -96,7 +97,7 @@ function getTotalDistance(activities: Activity[]): number {
   </div>
 
   <div>
-    <ActivityModal :new-activity="newActivity" :modal="modal" :toggleModal="toggleModal" />
+    <ActivityModal :new-activity="newActivity" :modal="modal" :adding="adding" :toggleModal="toggleModal" />
   </div>
   </div>
   <div v-else> 
