@@ -24,23 +24,23 @@ for (let i = 0; i < users.length; i++) {
 <template>
   <div>
     <h1>Friends List</h1>
-  </div>
-
-  <div>
-    <div v-for="user in friends" :key="user.id" class="class">
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
-            <figure class="image is-48x48">
-              <img :src="user.profilePicture" alt="Profile Picture">
-            </figure>
-          </div>
-          <div class="media-content">
-            <p class="title is-4">{{ user.name }}</p>
-            <p class="subtitle is-6">ID: {{ user.id }}</p>
-          </div>
-        </div>
-      </div>
+    <div class="table-container">
+      <table class="table is-striped is-fullwidth">
+        <thead>
+          <tr>
+            <th>Profile Picture</th>
+            <th>Name</th>
+            <th>ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(user, index) in friends" :key="user.id" :class="{ 'is-selected': index % 2 === 0 }">
+            <td><img :src="user.profilePicture" alt="Profile Picture" class="image is-48x48"></td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.id }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -50,5 +50,13 @@ h1 {
   text-align: center;
   font-weight: bold;
   font-size: xx-large;
+}
+
+.table-container {
+  margin-top: 20px;
+}
+
+.is-selected {
+  background-color: #f5f5f5; /* Alternate row color */
 }
 </style>

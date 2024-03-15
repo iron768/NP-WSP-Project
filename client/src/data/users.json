@@ -22,7 +22,15 @@
           "distance": 3.0,
           "image": "https://example.com/activity1.jpg",
           "description": "Morning Jog in the Park"
-      }
+      },
+      {
+        "activityID": 3,
+        "date": "2024-03-15",
+        "caloriesBurned": 800,
+        "distance": 6.0,
+        "image": "https://example.com/activity1.jpg",
+        "description": "Sample walking description"
+    }
       ]
     },
     {

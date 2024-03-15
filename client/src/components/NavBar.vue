@@ -26,11 +26,15 @@ const session = getSession()
 
     <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-start">
+        <RouterLink to="search" class="navbar-item"> User Search </RouterLink>
+
         <RouterLink to="admin" class="navbar-item" v-if="session.user?.admin"> Admin </RouterLink>
 
         <RouterLink to="activity" class="navbar-item" v-if="session.user != null"> My Activity </RouterLink>
 
         <RouterLink to="friends" class="navbar-item" v-if="session.user != null"> Friends </RouterLink>
+
+        <RouterLink to="social" class="navbar-item" v-if="session.user != null"> Friend's Activity</RouterLink>
       </div>
       <LoginBadge />
     </div>
@@ -43,8 +47,8 @@ const session = getSession()
 }
 
 .navbar {
-  background-color: #333333;
-  height: 3em;
+  background-color: #08120C;
+  height: 4em;
 }
 
 .navbar-item {
