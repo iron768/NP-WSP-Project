@@ -96,7 +96,7 @@ export function getUserByName(userName: string) {
     const users = getUsers();
 
     for (const user of users) {
-        if (user.name === userName) {
+        if (user.name.toLowerCase() === userName.toLowerCase()) {
             return user;
         }
     }
