@@ -17,7 +17,7 @@ function handleSearch() {
 <template>
   <div>
     <h1>User Search</h1>
-    <input class="input" type="text" placeholder="Search for user via name." v-model="searchQuery" @input="handleSearch"/>
+    <input class="input" type="text" placeholder="Search for user via their full name." v-model="searchQuery" @input="handleSearch"/>
 
     <div v-if="searchedUser">
       <div class="card custom-border" style="margin-top: 20px">

@@ -77,9 +77,13 @@ const session = getSession()
         </div>
       </div>
     </div>
-    <button @click="toggleModal();" class="modal-close is-large" aria-label="close">
+    <button @click="toggleModal();" class="modal-close is-large modalclose" aria-label="close">
     </button>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.modalclose {
+  top: 4rem; /* Adjust as needed */
+}
+</style>

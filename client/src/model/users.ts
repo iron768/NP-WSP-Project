@@ -93,10 +93,10 @@ export function getFriendsActivities(user: User | null): Activity[] {
 }
 
 export function getUserByName(userName: string) {
-    const users = getUsers();
+    const users: User[] = getUsers();
 
     for (const user of users) {
-        if (user.name.toLowerCase() === userName.toLowerCase()) {
+        if (user.name.toLowerCase().includes(userName.toLowerCase())) {
             return user;
         }
     }
