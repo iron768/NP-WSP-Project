@@ -3,6 +3,10 @@ import { type User, getUsers } from "../model/users";
 import { getSession } from '../model/session'
 import { ref } from "vue";
 
+const props = defineProps<{
+    isActive: boolean
+}>()
+
 const session = getSession()
 
 let isActiveLogin = ref(false);
@@ -20,8 +24,8 @@ function toggleMenuLogin() {
     <div class="navbar-end">
         <div class="navbar-item">
           <div v-if="session.user != null" class="navbar-item">
-            {{ session.user.name }}
             <img :src="session.user.profilePicture"/>
+            <span :class=" { 'custom-text-color': isActive}"> {{ session.user.name }} </span>
           </div>
           <div class="buttons">
             <a v-if="session.user == null" class="button is-black">
@@ -59,6 +63,10 @@ function toggleMenuLogin() {
 
 .navbar-item {
     color: #faf9f6;
+}
+
+.custom-text-color {
+  color: #08120C; /* Set the text color */
 }
 
 </style>

@@ -26,17 +26,17 @@ const session = getSession()
 
     <div id="navbarBasicExample" class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-start">
-        <RouterLink to="search" class="navbar-item"> User Search </RouterLink>
+        <RouterLink to="search" class="navbar-item" :class=" { 'custom-text-color': isActive}"> User Search </RouterLink>
 
-        <RouterLink to="admin" class="navbar-item" v-if="session.user?.admin"> Admin </RouterLink>
+        <RouterLink to="admin" class="navbar-item" :class=" { 'custom-text-color': isActive}" v-if="session.user?.admin"> Admin </RouterLink>
 
-        <RouterLink to="activity" class="navbar-item" v-if="session.user != null"> My Activity </RouterLink>
+        <RouterLink to="activity" class="navbar-item" :class=" { 'custom-text-color': isActive}" v-if="session.user != null"> My Activity </RouterLink>
 
-        <RouterLink to="friends" class="navbar-item" v-if="session.user != null"> Friends </RouterLink>
+        <RouterLink to="friends" class="navbar-item" :class=" { 'custom-text-color': isActive}" v-if="session.user != null"> Friends </RouterLink>
 
-        <RouterLink to="social" class="navbar-item" v-if="session.user != null"> Friend's Activity</RouterLink>
+        <RouterLink to="social" class="navbar-item" :class=" { 'custom-text-color': isActive}" v-if="session.user != null"> Friend's Activity</RouterLink>
       </div>
-      <LoginBadge />
+      <LoginBadge :isActive="isActive" />
     </div>
   </nav>
 </template>
@@ -53,5 +53,9 @@ const session = getSession()
 
 .navbar-item {
   color: #faf9f6;
+}
+
+.custom-text-color {
+  color: #08120C; /* Set the text color */
 }
 </style>
